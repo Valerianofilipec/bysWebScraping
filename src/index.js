@@ -21,7 +21,10 @@ server.post('/synonym', async (req, res)=>{
             throw new Error("Yep! something went wrong.");
         }
         const result = await scrape(word);
-        res.status(200).json(result);
+        res.status(200).json({scrapeResponse:{
+            word,
+            synonym:result
+        }});
     } catch (error) {
         res.status(500).json(error);
     }
