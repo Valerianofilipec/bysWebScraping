@@ -23,7 +23,7 @@ server.post('/synonym', async (req, res)=>{
         const result = await scrape(word);
         res.status(200).json({scrapeResponse:{
             word,
-            synonym:result
+            synonyms:result
         }});
     } catch (error) {
         res.status(500).json(error);
